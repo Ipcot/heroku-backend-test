@@ -9,7 +9,7 @@ const {contacts: ctrl} = require('../../controllers');
 
 router.get('/', authenticate, ctrlWrapper(ctrl.getAllContacts))
 
-router.get('/:id', ctrlWrapper(ctrl.getContactById))
+router.get('/:id', authenticate, ctrlWrapper(ctrl.getContactById))
 
 router.post('/', authenticate, validation(schemas.addContactSchema), ctrlWrapper(ctrl.addContact))
 
