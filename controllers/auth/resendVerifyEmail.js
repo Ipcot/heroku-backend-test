@@ -1,9 +1,8 @@
 const { RequestError, sendEmail } = require("../../helpers");
-const {User} = require("../../models/user")
+const {User} = require("../../models/user");
 
 const resendVerifyEmail = async(req, res) => {
     const {email} = req.body;
-    console.log(req.body);
     if(!email) {
         throw RequestError(400, "missing required field email")
     }
@@ -18,7 +17,7 @@ const resendVerifyEmail = async(req, res) => {
     const mail = {
         to: email,
         subject: "Verify registration",
-        html: `<a href="http://localhost:3000/api/users/verify/${verificationToken}"> Press for confirm your email</a>`,
+        html: `<a href="http://localhost:3000/api/users/verify/${user.verificationToken}"> Press for confirm your email</a>`,
     };
     await sendEmail(mail);
     res.json({
