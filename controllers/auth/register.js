@@ -18,7 +18,7 @@ const register = async (req, res) => {
   const avatarURL = gravatar.url(email);
   const verificationToken = nanoid();
 
-
+  const {BASE_URL} = process.env;
 
   const result = await User.create({
     email,
@@ -31,7 +31,7 @@ const register = async (req, res) => {
   const mail = {
     to: email,
     subject: "Verify your registration",
-    html: `<a href="http://localhost:3000/api/users/verify/${verificationToken}"> Press for confirm your email</a>`
+    html: `<a target="_blank" href="${BASE_URL}/api/users/verify/${verificationToken}"> Press for confirm your email</a>`
   };
 
   await sendEmail(mail);

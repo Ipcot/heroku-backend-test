@@ -16,16 +16,9 @@ const sendEmail = async (data) => {
     }
 };
 
-// const email = {
-//   to: "y.pokhyl@e-on.ua",
-//   from: "woully@gmail.com",
-//   subject: "2-3 weeks max",
-//   html: "Test grid mail",
-// };
 
-// sgMail.send(email)
-// .then(() => console.log("email send success"))
-// .catch(error => console.log(error.message));
+
+
 
 
 // const nodemailer = require("nodemailer");
